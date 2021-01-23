@@ -92,6 +92,8 @@ Berikut hasilnya:
 ![Delete existing barang](https://raw.githubusercontent.com/farrasmuttaqin/ci-rest-structure/master/images/delete.png)
 <p align="center">Figure 5:  Delete existing barang</p>
 
+Tidak lupa saya sertakan postman_collection sebagai contoh request terhadap seluruh API diatas.
+
 ## Author
 Hi there , i'm <a href="https://github.com/farrasmuttaqin/"> Muhammad Farras Muttaqin </a>
 
