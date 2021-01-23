@@ -60,7 +60,7 @@ class Product extends REST_Controller {
         
         $this->db->insert('barang',$input);
      
-        $this->response(['Generate new barang success!'], REST_Controller::HTTP_OK);
+        return $this->response(['Generate new barang success!'], REST_Controller::HTTP_OK);
     } 
      
     /**
@@ -72,11 +72,27 @@ class Product extends REST_Controller {
     {
         $input = $this->put();
 
+        /**
+         * If id barang is exist, then use get query with parameter.
+         * Used exception (try,catch) for secure the process if id barang is not exist
+         */
+
+        try{
+        
+            $this->Barang->findIdBarang($product_id_existing_barang);
+
+        }catch(Exception $e){
+            
+            $response = (object) ["status" => false, "error" => "Product ID is not Found!"];
+            return $this->response($response, REST_Controller::HTTP_OK);
+        
+        }
+
         $validation = $this->validation($input);
 
         $this->db->update('barang', $input, array('id'=>$product_id_existing_barang));
      
-        $this->response(['Barang with id '.$product_id_existing_barang.' successfully updated!'], REST_Controller::HTTP_OK);
+        return $this->response(['Barang with id '.$product_id_existing_barang.' successfully updated!'], REST_Controller::HTTP_OK);
     }
      
     /**
@@ -86,9 +102,25 @@ class Product extends REST_Controller {
     */
     public function index_delete($product_id_existing_barang = 0)
     {
+        /**
+         * If id barang is exist, then use get query with parameter.
+         * Used exception (try,catch) for secure the process if id barang is not exist
+         */
+
+        try{
+        
+            $this->Barang->findIdBarang($product_id_existing_barang);
+
+        }catch(Exception $e){
+            
+            $response = (object) ["status" => false, "error" => "Product ID is not Found!"];
+            return $this->response($response, REST_Controller::HTTP_OK);
+        
+        }
+
         $temp = $this->db->delete('barang', array('id'=>$product_id_existing_barang));
 
-        $this->response(['Barang with id '.$product_id_existing_barang.' successfully deleted!'], REST_Controller::HTTP_OK);
+        return $this->response(['Barang with id '.$product_id_existing_barang.' successfully deleted!'], REST_Controller::HTTP_OK);
     }
 
     function validation(array $input = [])

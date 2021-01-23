@@ -15,19 +15,7 @@
                  * Used exception (try,catch) for secure the process if id barang is not exist
                  */
 
-                $where = array(
-                    'id' => $product_id_existing_barang
-                );
-
-                $this->db->select('*');
-                $this->db->from('barang'); 
-                $this->db->where($where);  
-                $data = $this->db->get()->result(); 
-                
-                if (empty($data))
-                {
-                    throw new Exception();
-                }
+                $data = $this->findIdBarang($product_id_existing_barang);
             }
             else
             {
@@ -39,7 +27,26 @@
             }
             
 			return $data;
-		}
+        }
+        
+        public function findIdBarang($product_id_existing_barang = 0)
+        {
+            $where = array(
+                'id' => $product_id_existing_barang
+            );
+
+            $this->db->select('*');
+            $this->db->from('barang'); 
+            $this->db->where($where);  
+            $data = $this->db->get()->result(); 
+            
+            if (empty($data))
+            {
+                throw new Exception();
+            }
+
+            return $data;
+        }
 
 	}
 
