@@ -23,8 +23,10 @@ Tidak lupa untuk Give exception ketika product id tidak ditemukan
 CodeIgniter HMVC rest api structure with JWT integration
 
 # Dependencies
+```bash
 PHP 5.x above
 Composer [https://getcomposer.org/]
+```
 
 # Installation instructions
 
