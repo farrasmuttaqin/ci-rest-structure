@@ -52,3 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+/**
+ * Modify api routes
+ */
+ 
+ // route for Get detail existing barang with product id, Edit existing barang with product id & Delete existing barang with product id
+ $route['v1/product/(:any)'] = 'v1/product/index/$1';
