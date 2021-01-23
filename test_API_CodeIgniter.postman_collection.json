@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "3c686754-ffbd-4a79-bd34-1e55d30afc24",
+		"name": "test_API_CodeIgniter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all barang",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ci-rest-structure/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ci-rest-structure",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get detail existing barang with product id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ci-rest-structure/v1/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ci-rest-structure",
+						"v1",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate new barang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "123213",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "213123",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "-2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "namee",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/ci-rest-structure/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ci-rest-structure",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit existing barang with product id ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"farras\",\r\n    \"description\": \"farras\",\r\n    \"price\": -2,\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/ci-rest-structure/v1/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ci-rest-structure",
+						"v1",
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing barang with product id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"todo_name\" : \"yyy\",\r\n    \"todo_description\" : \"yoyo\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/ci-rest-structure/v/product?product_id_existing_barang=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ci-rest-structure",
+						"v",
+						"product"
+					],
+					"query": [
+						{
+							"key": "product_id_existing_barang",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
